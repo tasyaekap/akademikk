@@ -1,0 +1,60 @@
+@layout('template')
+@yield('konten')
+    <script>
+        var mhsw = [{
+                "id": 1,
+                "nm_mhs": "Tasya Ekaputri",
+                "alamat": "jl. Kebahagiaan",
+                "email": "tasyaekaaputri@gmail.com",
+                "no_telp": "081234345421",
+                "biaya_id": 2,
+                "prodi_id": 1,
+                "asun_id": null,
+                "created_at": "2019-09-13 10:07:35",
+                "updated_at": "2019-09-13 12:42:49"
+            },
+                         {
+                "id": 2,
+                "nm_mhs": "Ekaputri Tasya",
+                "alamat": "jl. Kebahagiaan",
+                "email": "tasyaekaaputri@gmail.com",
+                "no_telp": "081234345421",
+                "biaya_id": 2,
+                "prodi_id": 1,
+                "asun_id": null,
+                "created_at": "2019-09-13 10:07:35",
+                "updated_at": "2019-09-13 12:42:49"
+            }
+            ]
+
+            var acol = [{ id: "id" , header : "urut", width: 100 },
+                        { id: "nm_mhs" , header: "Nama Mahasiswa" , width: 300},
+                        { id: "alamat" , header: "Alamat", width: 300 },
+                        { id: "email" , header: "Email", width: 300 },
+                        { id: "no_telp" , header: "No. Telp", width: 145 },
+                        { id: "biaya_id" , header: "Kelas Biaya", width: 100 },
+                        { id: "prodi_id" , header: "Nama Prodi",  width: 200 },
+                        { id: "asun_id" , header: "Asal Univ", width: 150 }
+                        ]
+
+            var aele = [
+                        {view: "text", label: "Nama Mahasiswa",labelWidth:130, name:"nm_mhs"},
+                        {view: "text", label: "Alamat", labelWidth:130, name:"alamat"},
+                        {view: "text", label: "Email",labelWidth:130, name:"email"},
+                        {view: "text", label: "No. Telp",labelWidth:130, name:"no_telp"},
+                        {view: "text", label: "Biaya",labelWidth:130, name:"biaya_id"},
+                        {view: "text", label: "Prodi",labelWidth:130, name:"prodi_id"},
+                        {view: "text", label: "Asun",labelWidth:130, name:"asun_id"},]
+
+            webix.ui({
+              rows:[
+                { view:"form", elements: aele, id:"frm1"},
+                { view:"datatable", data:mhsw, columns:acol, id:"tbl1", select:"row" }
+              ]
+            }),
+              
+            webix.ready(function(){
+            $$("frm1").bind($$("tbl1"))
+            });
+    </script>
+@endyield
